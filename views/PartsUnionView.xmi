@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diagram="http://www.metamatrix.com/metamodels/Diagram" xmlns:mmcore="http://www.metamatrix.com/metamodels/Core" xmlns:relational="http://www.metamatrix.com/metamodels/Relational" xmlns:transformation="http://www.metamatrix.com/metamodels/Transformation">
+  <mmcore:ModelAnnotation xmi:uuid="mmuuid:9686c6ff-122f-4f89-991b-8d8cec236f9d" primaryMetamodelUri="http://www.metamatrix.com/metamodels/Relational" modelType="VIRTUAL" ProducerName="Teiid Designer" ProducerVersion="7.7.1.v20120521-1528-H9-Beta2-SOA">
+    <modelImports xmi:uuid="mmuuid:70f1aa56-adb1-44a2-9901-324d073eaff9" name="XMLSchema" modelLocation="http://www.w3.org/2001/XMLSchema" modelType="TYPE" primaryMetamodelUri="http://www.eclipse.org/xsd/2002/XSD"/>
+    <modelImports xmi:uuid="mmuuid:8e462868-8e44-4633-82c0-4d44d6408371" name="PartsFlatFileView" modelLocation="PartsFlatFileView.xmi" uuid="mmuuid:f969176c-44cc-4dce-a743-4dfda44d8321" modelType="VIRTUAL" primaryMetamodelUri="http://www.metamatrix.com/metamodels/Relational"/>
+    <modelImports xmi:uuid="mmuuid:cbec0473-6a79-4f4e-a71c-e059ae310c39" name="PartsXMLView" modelLocation="PartsXMLView.xmi" uuid="mmuuid:f7d61f2f-2521-4dac-b2c8-56ddebc991b9" modelType="VIRTUAL" primaryMetamodelUri="http://www.metamatrix.com/metamodels/Relational"/>
+  </mmcore:ModelAnnotation>
+  <diagram:DiagramContainer xmi:uuid="mmuuid:ea8b8158-ab57-4638-a24a-de0782069d49">
+    <diagram xmi:uuid="mmuuid:ca462dac-c38e-4765-86a9-12c30611f7cd" type="packageDiagramType" target="mmuuid/9686c6ff-122f-4f89-991b-8d8cec236f9d">
+      <diagramEntity xmi:uuid="mmuuid:34c4ddf9-5a27-430e-8f80-dbbf0831add1" name="UnionView" modelObject="mmuuid/04b4e180-cb02-4edb-b8dc-bb48f5d0915e" xPosition="120" yPosition="70"/>
+    </diagram>
+    <diagram xmi:uuid="mmuuid:b439c507-6398-48fb-b216-4cbdb3c76785" type="transformationDiagramType" target="mmuuid/04b4e180-cb02-4edb-b8dc-bb48f5d0915e">
+      <diagramEntity xmi:uuid="mmuuid:f320cec9-707c-45ac-b60c-e460aca89533" modelObject="mmuuid/04b4e180-cb02-4edb-b8dc-bb48f5d0915e" xPosition="30" yPosition="50"/>
+      <diagramEntity xmi:uuid="mmuuid:08245db2-4f61-4dff-a5ca-ff3a477bafdf" name="T" modelObject="mmuuid/632e4346-cb99-4b9c-ad6d-3cda939d39a8" xPosition="229" yPosition="50"/>
+      <diagramEntity xmi:uuid="mmuuid:3c45ef9a-574c-4059-9a4b-8eb6d021fa54" xPosition="279" yPosition="50">
+        <modelObject href="PartsFlatFileView.xmi#mmuuid/24e74819-cf60-421c-bd8d-beae5babc711"/>
+      </diagramEntity>
+      <diagramEntity xmi:uuid="mmuuid:dbad2491-f47e-423e-93cd-fa5b799e120a" xPosition="552" yPosition="50">
+        <modelObject href="PartsXMLView.xmi#mmuuid/a61ccabf-4daf-4a37-9c74-3ea561d94624"/>
+      </diagramEntity>
+    </diagram>
+  </diagram:DiagramContainer>
+  <mmcore:AnnotationContainer xmi:uuid="mmuuid:426eaa1d-9a7e-4113-b7b7-98f92f971422"/>
+  <transformation:TransformationContainer xmi:uuid="mmuuid:8eaa68d8-1bfb-4e79-a6e5-e6136ea80e3b">
+    <transformationMappings xsi:type="transformation:SqlTransformationMappingRoot" xmi:uuid="mmuuid:632e4346-cb99-4b9c-ad6d-3cda939d39a8" outputs="mmuuid/04b4e180-cb02-4edb-b8dc-bb48f5d0915e" target="mmuuid/04b4e180-cb02-4edb-b8dc-bb48f5d0915e">
+      <helper xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:63d4fe2d-2526-49c9-ba2b-2914e54c4d9c">
+        <nested xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:9840b67d-9f52-4481-bf1e-6e6cdc954b2a" selectSql="SELECT * FROM PartsFlatFileView.PartsFlatFileViewTable UNION ALL SELECT * FROM PartsXMLView.PartsXMLViewTable"/>
+        <aliases xmi:uuid="mmuuid:8a552d79-1381-45e1-85f1-7034bf23ef6d" alias="PartsFlatFileViewTable">
+          <aliasedObject href="PartsFlatFileView.xmi#mmuuid/24e74819-cf60-421c-bd8d-beae5babc711"/>
+        </aliases>
+        <aliases xmi:uuid="mmuuid:72cb8f13-f199-4670-8bb0-20bc6fd283dc" alias="PartsXMLViewTable">
+          <aliasedObject href="PartsXMLView.xmi#mmuuid/a61ccabf-4daf-4a37-9c74-3ea561d94624"/>
+        </aliases>
+      </helper>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:70069a12-0215-41b3-8d5d-65bfafe6393d" outputs="mmuuid/0f2da289-9655-4231-93f3-ec157895b7ab">
+        <inputs href="PartsFlatFileView.xmi#mmuuid/eebf9dd4-2549-48d2-99e0-02ff9a2ed3e4"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:4954cd9c-3baf-4975-9fec-3d20dc6b1c26" outputs="mmuuid/97a6da8e-eed5-47e7-8a56-db181cb0e28d">
+        <inputs href="PartsFlatFileView.xmi#mmuuid/68351a54-c7b3-455a-a6bf-4d2ee9787d88"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:04abe81a-6450-4733-8212-8a08fbae78af" outputs="mmuuid/80ca771c-a08d-434e-84e4-5341ad0ecd10">
+        <inputs href="PartsFlatFileView.xmi#mmuuid/f2eda6cc-67ce-4275-aa00-bf43870e8865"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:395b924a-e1e7-4e63-ac20-c593f052b634" outputs="mmuuid/9650cb0e-04a7-4434-b7b2-9767317c7c16">
+        <inputs href="PartsFlatFileView.xmi#mmuuid/13a41e67-cf30-4b2c-a80e-4f470ac707b5"/>
+      </nested>
+      <inputs href="PartsFlatFileView.xmi#mmuuid/24e74819-cf60-421c-bd8d-beae5babc711"/>
+      <inputs href="PartsXMLView.xmi#mmuuid/a61ccabf-4daf-4a37-9c74-3ea561d94624"/>
+    </transformationMappings>
+  </transformation:TransformationContainer>
+  <relational:View xmi:uuid="mmuuid:04b4e180-cb02-4edb-b8dc-bb48f5d0915e" name="UnionView" supportsUpdate="false">
+    <columns xmi:uuid="mmuuid:0f2da289-9655-4231-93f3-ec157895b7ab" name="id" length="4000">
+      <type href="http://www.w3.org/2001/XMLSchema#string"/>
+    </columns>
+    <columns xmi:uuid="mmuuid:97a6da8e-eed5-47e7-8a56-db181cb0e28d" name="name" length="4000">
+      <type href="http://www.w3.org/2001/XMLSchema#string"/>
+    </columns>
+    <columns xmi:uuid="mmuuid:80ca771c-a08d-434e-84e4-5341ad0ecd10" name="color" length="4000">
+      <type href="http://www.w3.org/2001/XMLSchema#string"/>
+    </columns>
+    <columns xmi:uuid="mmuuid:9650cb0e-04a7-4434-b7b2-9767317c7c16" name="weight" length="4000">
+      <type href="http://www.w3.org/2001/XMLSchema#string"/>
+    </columns>
+  </relational:View>
+</xmi:XMI>

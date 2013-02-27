@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diagram="http://www.metamatrix.com/metamodels/Diagram" xmlns:mmcore="http://www.metamatrix.com/metamodels/Core" xmlns:mmws="http://www.metamatrix.com/metamodels/WebService" xmlns:transformation="http://www.metamatrix.com/metamodels/Transformation">
+  <mmcore:ModelAnnotation xmi:uuid="mmuuid:df80d3cc-dd20-4589-863e-06f28805ee41" primaryMetamodelUri="http://www.metamatrix.com/metamodels/WebService" modelType="VIRTUAL" ProducerName="Teiid Designer" ProducerVersion="8.1.0">
+    <modelImports xmi:uuid="mmuuid:f7c42f7b-ea02-40f4-b13f-61d819a9ee6d" name="PartsXMLViewOutput" modelLocation="PartsXMLViewOutput.xsd" modelType="TYPE" primaryMetamodelUri="http://www.eclipse.org/xsd/2002/XSD"/>
+    <modelImports xmi:uuid="mmuuid:bb4fd7f3-a077-4872-8586-3d250406f4ed" name="PartsXMLViewOutput_View" modelLocation="PartsXMLViewOutput_View.xmi" uuid="mmuuid:fa13c31d-4ebe-49f5-b598-2482afe864a7" modelType="VIRTUAL" primaryMetamodelUri="http://www.metamatrix.com/metamodels/XmlDocument"/>
+  </mmcore:ModelAnnotation>
+  <mmws:Interface xmi:uuid="mmuuid:950f9250-d24f-41a5-945d-6e6c621d95f1" name="PartsXMLView_PartsXMLViewTable">
+    <operations xmi:uuid="mmuuid:b4f5957f-4909-4693-9fdd-7fd7b672a1f1" name="getPartsXMLViewTable">
+      <output xmi:uuid="mmuuid:b8d5cc7a-0290-4aee-bc47-e48739ab2196" name="PartsXMLViewTable_OutputMsg">
+        <contentElement href="PartsXMLViewOutput.xsd#//PartsXMLViewTable_Output;XSDElementDeclaration"/>
+        <xmlDocument href="PartsXMLViewOutput_View.xmi#mmuuid/d94edc21-707d-4836-895b-5dd8c53fee92"/>
+      </output>
+    </operations>
+  </mmws:Interface>
+  <transformation:TransformationContainer xmi:uuid="mmuuid:f5c34c27-78c2-4409-903e-34d525ca82cc">
+    <transformationMappings xsi:type="transformation:SqlTransformationMappingRoot" xmi:uuid="mmuuid:8a6fc59b-6fe9-4c43-be86-c15f0bbd9f55" outputs="mmuuid/b4f5957f-4909-4693-9fdd-7fd7b672a1f1" target="mmuuid/b4f5957f-4909-4693-9fdd-7fd7b672a1f1">
+      <helper xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:353c7f85-e714-43de-bee7-56f47c6348eb">
+        <nested xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:3bab4b67-fb5c-4fcc-a29b-c3618c01410f" selectSql="CREATE VIRTUAL PROCEDURE BEGIN DECLARE string VARIABLES.IN_exampleVar ;VARIABLES.IN_exampleVar = xPathValue(null, '//*[local-name()=&quot;exampleName&quot;]');SELECT * FROM PartsXMLViewOutput_View.PartsXMLViewTable_OutputView; END"/>
+      </helper>
+    </transformationMappings>
+  </transformation:TransformationContainer>
+  <diagram:DiagramContainer xmi:uuid="mmuuid:5265e283-23b6-4e9e-bb50-a14416aab9fc">
+    <diagram xmi:uuid="mmuuid:dccda3ac-aa2c-4a17-8a5d-2eae2f79dc7f" type="packageDiagramType" target="mmuuid/df80d3cc-dd20-4589-863e-06f28805ee41">
+      <diagramEntity xmi:uuid="mmuuid:a4aa0451-049e-495f-87b7-bb1bbd26b58e" modelObject="mmuuid/950f9250-d24f-41a5-945d-6e6c621d95f1" xPosition="10" yPosition="10"/>
+    </diagram>
+  </diagram:DiagramContainer>
+</xmi:XMI>
